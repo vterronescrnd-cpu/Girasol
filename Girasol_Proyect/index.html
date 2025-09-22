@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunflower Night with Fireworks and Fireflies</title>
+    <title>Girasol para Ratona</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -15,45 +15,20 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
-        /* Mensaje centrado arriba con duración larga */
         #mensaje-feliz {
             position: fixed;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffeb3b;
-            color: #333;
-            font-weight: bold;
-            font-size: 26px;
-            padding: 20px 35px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #fbc02d;
-            opacity: 1;
-            animation: fadeOut 15s ease forwards;
-            z-index: 10000;
-            white-space: nowrap;
-            text-align: center;
-        }
-        @keyframes fadeOut {
-            0%, 93% { opacity: 1; }
-            100% { opacity: 0; visibility: hidden; }
-        }
-
-        /* Mensaje inferior */
-        #mensaje-inferior {
-            position: fixed;
-            bottom: 10px;
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
             color: #fff;
-            background-color: #000;
-            font-weight: bold;
-            font-size: 28px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 8px #000;
-            z-index: 10001;
-            white-space: nowrap;
+            font-size: 24px;
+            z-index: 10002;
+            animation: fadeOut 15s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         /* Fuegos artificiales */
@@ -63,11 +38,11 @@
             height: 4px;
             background: radial-gradient(circle, white 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
-            box-shadow:
-                0 0 6px 3px white,
-                0 0 10px 5px white;
+            box-shadow: 0 0 6px 3px white, 0 0 10px 5px white;
             animation: explode 1s ease forwards;
+            z-index: 5000;
         }
+
         @keyframes explode {
             0% { transform: scale(0.5); opacity: 1; }
             100% { transform: scale(12); opacity: 0; }
@@ -87,7 +62,6 @@
             z-index: 9000;
         }
 
-        /* Animaciones de movimiento para luciérnagas */
         @keyframes move1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 15px); } }
         @keyframes move2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-15px, -10px); } }
         @keyframes move3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(10px, -20px); } }
@@ -102,33 +76,43 @@
 </head>
 <body>
     <div id="mensaje-feliz">Feliz día de las flores amarillas ratona:c</div>
-    <div class="sunflower">
-        <div class="flower_wrapper">
-            <div class="flower_stem"></div>
-            <div class="flower_center"></div>
-            <div class="flower_petal flower_petal-1"></div>
-            <div class="flower_petal flower_petal-2"></div>
-            <div class="flower_petal flower_petal-3"></div>
-            <div class="flower_petal flower_petal-4"></div>
-            <div class="flower_petal flower_petal-5"></div>
-            <div class="flower_petal flower_petal-6"></div>
-            <div class="flower_petal flower_petal-7"></div>
-            <div class="flower_petal flower_petal-8"></div>
-            <div class="flower_petal flower_petal-9"></div>
-            <div class="flower_petal flower_petal-10"></div>
-            <div class="flower_petal flower_petal-11"></div>
-            <div class="flower_petal flower_petal-12"></div>
-            <div class="flower_leaf flower_leaf-1"></div>
-            <div class="flower_leaf flower_leaf-2"></div>
-            <div class="flower_light flower_light-1"></div>
-            <div class="flower_light flower_light-2"></div>
-            <div class="flower_light flower_light-3"></div>
-            <div class="flower_light flower_light-4"></div>
-            <div class="flower_light flower_light-5"></div>
-            <div class="flower_light flower_light-6"></div>
-            <div class="flower_light flower_light-7"></div>
-            <div class="flower_light flower_light-8"></div>
-        </div>
+    <div class="flower_wrapper">
+        <div class="flower_stem"></div>
+        <div class="flower_center"></div>
+        <div class="flower_petal flower_petal-1"></div>
+        <div class="flower_petal flower_petal-2"></div>
+        <div class="flower_petal flower_petal-3"></div>
+        <div class="flower_petal flower_petal-4"></div>
+        <div class="flower_petal flower_petal-5"></div>
+        <div class="flower_petal flower_petal-6"></div>
+        <div class="flower_petal flower_petal-7"></div>
+        <div class="flower_petal flower_petal-8"></div>
+        <div class="flower_petal flower_petal-9"></div>
+        <div class="flower_petal flower_petal-10"></div>
+        <div class="flower_petal flower_petal-11"></div>
+        <div class="flower_petal flower_petal-12"></div>
+        <div class="flower_leaf flower_leaf-1"></div>
+        <div class="flower_leaf flower_leaf-2"></div>
+        <div class="flower_light flower_light-1"></div>
+        <div class="flower_light flower_light-2"></div>
+        <div class="flower_light flower_light-3"></div>
+        <div class="flower_light flower_light-4"></div>
+        <div class="flower_light flower_light-5"></div>
+        <div class="flower_light flower_light-6"></div>
+        <div class="flower_light flower_light-7"></div>
+        <div class="flower_light flower_light-8"></div>
+        <div class="light light-1"></div>
+        <div class="light light-2"></div>
+        <div class="light light-3"></div>
+        <div class="light light-4"></div>
+        <div class="light light-5"></div>
+        <div class="light light-6"></div>
+        <div class="light light-7"></div>
+        <div class="light light-8"></div>
+        <div class="light light-9"></div>
+        <div class="light light-10"></div>
+        <div class="light light-11"></div>
+        <div class="light light-12"></div>
     </div>
 
     <script>
@@ -175,32 +159,34 @@
 
         // Frases al hacer clic
         const phrases = [
-            "Yo sigo extrañándote",
-            "Estar contigo es lo que me hace falta",
-            "Seguiré buscándote",
-            "Te necesito pa' curarme el alma",
-            "Yo sigo extrañándote",
-            "Estar contigo es lo que me hace falta",
-            "Desde la última vez",
-            "Quiero ver...te otra vez<3"
+            "Te quiero muchito",
+            "Mi voz de cuy",
+            "Mi gordita bonita",
+            "Muaack",
+            "Bobita",
+            "Te extrañooo",
+            "Pan con chicharrón",
+            "Ai loviu tu mach",
+            "¿Ya no me quieres?",
+            "Mmm...",
+            "Yo si"
         ];
-        let phraseIndex = 0; // Contador para recorrer las frases en orden
+        let phraseIndex = 0;
 
         body.addEventListener('click', (event) => {
             const phraseDiv = document.createElement('div');
             phraseDiv.className = 'click-phrase';
-            phraseDiv.textContent = phrases[phraseIndex]; // Usar la frase en orden
-            phraseIndex = (phraseIndex + 1) % phrases.length; // Avanzar al siguiente índice, reiniciar si llega al final
+            phraseDiv.textContent = phrases[phraseIndex];
+            phraseIndex = (phraseIndex + 1) % phrases.length;
 
-            // Posicionar en el lugar exacto del clic
             phraseDiv.style.left = `${event.clientX}px`;
             phraseDiv.style.top = `${event.clientY}px`;
-            phraseDiv.style.transform = 'translate(-50%, -50%)'; // Centrar el texto en el clic
+            phraseDiv.style.transform = 'translate(-50%, -50%)';
 
             body.appendChild(phraseDiv);
             setTimeout(() => {
                 body.removeChild(phraseDiv);
-            }, 3000); // Eliminar después de 3 segundos
+            }, 3000);
         });
     </script>
 </body>

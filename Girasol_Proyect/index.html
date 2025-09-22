@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Night with Fireworks and Fireflies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* Mensaje centrado arriba con duración larga */
+        #mensaje-feliz {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffeb3b;
+            color: #333;
+            font-weight: bold;
+            font-size: 26px;
+            padding: 20px 35px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #fbc02d;
+            opacity: 1;
+            animation: fadeOut 15s ease forwards;
+            z-index: 10000;
+            white-space: nowrap;
+            text-align: center;
+        }
+        @keyframes fadeOut {
+            0%, 93% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        /* Mensaje inferior */
+        #mensaje-inferior {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background-color: #000;
+            font-weight: bold;
+            font-size: 28px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #000;
+            z-index: 10001;
+            white-space: nowrap;
+        }
+
+        /* Fuegos artificiales */
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, white 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            box-shadow:
+                0 0 6px 3px white,
+                0 0 10px 5px white;
+            animation: explode 1s ease forwards;
+        }
+        @keyframes explode {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(12); opacity: 0; }
+        }
+
+        /* Luciérnagas */
+        .firefly {
+            position: fixed;
+            background: radial-gradient(circle, #ffff99 0%, transparent 70%);
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+            opacity: 0.8;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            box-shadow: 0 0 6px 3px #ffff99;
+            z-index: 9000;
+        }
+
+        /* Animaciones de movimiento para luciérnagas */
+        @keyframes move1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 15px); } }
+        @keyframes move2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-15px, -10px); } }
+        @keyframes move3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(10px, -20px); } }
+        @keyframes move4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 10px); } }
+        @keyframes move5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, 20px); } }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.8; box-shadow: 0 0 6px 3px #ffff99; }
+            50% { opacity: 0.3; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div id="mensaje-feliz">Feliz día de las flores amarillas ratona:c</div>
+    <div class="sunflower">
+        <div class="flower_wrapper">
+            <div class="flower_stem"></div>
+            <div class="flower_center"></div>
+            <div class="flower_petal flower_petal-1"></div>
+            <div class="flower_petal flower_petal-2"></div>
+            <div class="flower_petal flower_petal-3"></div>
+            <div class="flower_petal flower_petal-4"></div>
+            <div class="flower_petal flower_petal-5"></div>
+            <div class="flower_petal flower_petal-6"></div>
+            <div class="flower_petal flower_petal-7"></div>
+            <div class="flower_petal flower_petal-8"></div>
+            <div class="flower_petal flower_petal-9"></div>
+            <div class="flower_petal flower_petal-10"></div>
+            <div class="flower_petal flower_petal-11"></div>
+            <div class="flower_petal flower_petal-12"></div>
+            <div class="flower_leaf flower_leaf-1"></div>
+            <div class="flower_leaf flower_leaf-2"></div>
+            <div class="flower_light flower_light-1"></div>
+            <div class="flower_light flower_light-2"></div>
+            <div class="flower_light flower_light-3"></div>
+            <div class="flower_light flower_light-4"></div>
+            <div class="flower_light flower_light-5"></div>
+            <div class="flower_light flower_light-6"></div>
+            <div class="flower_light flower_light-7"></div>
+            <div class="flower_light flower_light-8"></div>
+        </div>
+    </div>
+
+    <script>
+        const colors = ['#ff4444', '#44ff44', '#4444ff', '#ff44ff', '#ffff44', '#44ffff'];
+        const body = document.body;
+
+        // Fuegos artificiales
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            const size = Math.random() * 3 + 2;
+            firework.style.width = size + 'px';
+            firework.style.height = size + 'px';
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.background = `radial-gradient(circle, ${color} 0%, rgba(255,255,255,0) 70%)`;
+            firework.style.boxShadow = `0 0 6px 3px ${color}, 0 0 10px 5px ${color}`;
+            firework.style.position = 'absolute';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.borderRadius = '50%';
+            firework.style.opacity = '1';
+            body.appendChild(firework);
+            firework.style.animation = 'explode 1s ease forwards';
+            setTimeout(() => {
+                body.removeChild(firework);
+            }, 1000);
+        }
+        setInterval(createFirework, 400);
+
+        // Luciérnagas
+        const moveAnims = ['move1', 'move2', 'move3', 'move4', 'move5'];
+        for (let i = 0; i < 50; i++) {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.top = (Math.random() * 100) + 'vh';
+            firefly.style.left = (Math.random() * 100) + 'vw';
+            const moveAnim = moveAnims[i % moveAnims.length];
+            const durMove = (Math.random() * 8 + 4).toFixed(2);
+            const durGlow = (Math.random() * 2 + 1).toFixed(2);
+            firefly.style.animation = `${moveAnim} ${durMove}s ease-in-out infinite, glow ${durGlow}s ease-in-out infinite`;
+            firefly.style.animationDelay = `${Math.random() * 5}s, ${Math.random() * 5}s`;
+            body.appendChild(firefly);
+        }
+
+        // Frases al hacer clic
+        const phrases = [
+            "Yo sigo extrañándote",
+            "Estar contigo es lo que me hace falta",
+            "Seguiré buscándote",
+            "Te necesito pa' curarme el alma",
+            "Yo sigo extrañándote",
+            "Estar contigo es lo que me hace falta",
+            "Desde la última vez",
+            "Quiero ver...te otra vez<3"
+        ];
+        let phraseIndex = 0; // Contador para recorrer las frases en orden
+
+        body.addEventListener('click', (event) => {
+            const phraseDiv = document.createElement('div');
+            phraseDiv.className = 'click-phrase';
+            phraseDiv.textContent = phrases[phraseIndex]; // Usar la frase en orden
+            phraseIndex = (phraseIndex + 1) % phrases.length; // Avanzar al siguiente índice, reiniciar si llega al final
+
+            // Posicionar en el lugar exacto del clic
+            phraseDiv.style.left = `${event.clientX}px`;
+            phraseDiv.style.top = `${event.clientY}px`;
+            phraseDiv.style.transform = 'translate(-50%, -50%)'; // Centrar el texto en el clic
+
+            body.appendChild(phraseDiv);
+            setTimeout(() => {
+                body.removeChild(phraseDiv);
+            }, 3000); // Eliminar después de 3 segundos
+        });
+    </script>
+</body>
+</html>
